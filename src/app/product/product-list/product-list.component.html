@@ -1,0 +1,9 @@
+<section id="productListing">
+  <h1 class="title">Today's HOT Deals</h1>
+
+  <div class="row">
+    <div class='col-md-3 col-xs-6' *ngFor='let product of products'>
+      <app-product-list-item [Product]="product"></app-product-list-item>
+    </div>
+  </div>
+</section>
