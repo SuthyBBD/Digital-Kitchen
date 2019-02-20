@@ -18,7 +18,7 @@ export class ProductService {
     retailPrice: '250',
     dkPrice: '180',
     image: 'blahblah',
-    createdDate: 'whenever',
+    createdDate: '',
     active: true,
     stockCount: 6
   },
@@ -30,7 +30,7 @@ export class ProductService {
       retailPrice: '120',
       dkPrice: '50',
       image: 'blahblah',
-      createdDate: 'whenever',
+      createdDate: '',
       active: true,
       stockCount: 6
     },
@@ -42,7 +42,7 @@ export class ProductService {
       retailPrice: '250',
       dkPrice: '180',
       image: 'blahblah',
-      createdDate: 'whenever',
+      createdDate: '',
       active: true,
       stockCount: 6
     },
@@ -54,7 +54,7 @@ export class ProductService {
       retailPrice: '250',
       dkPrice: '180',
       image: 'blahblah',
-      createdDate: 'whenever',
+      createdDate: '',
       active: true,
       stockCount: 6
     }];
