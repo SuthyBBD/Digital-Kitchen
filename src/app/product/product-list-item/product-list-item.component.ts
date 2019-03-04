@@ -8,10 +8,12 @@ import {ProductService} from '../services/product.service';
 })
 export class ProductListItemComponent implements OnInit {
 
-  @Input() Product: any;
+  @Input() product: any;
+  savings: number;
   constructor() { }
 
   ngOnInit() {
+    this.savings = Math.round((this.product.dkPrice / this.product.retailPrice) * 100);
   }
 
 }

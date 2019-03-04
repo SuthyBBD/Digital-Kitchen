@@ -10,7 +10,8 @@ const productSchema = new Schema({
   image: {type: String, required: true},
   createdDate: {type: Date, default: Date.now},
   active: Boolean,
-  stockCount: Number
+  stockCount: Number,
+  user: {type: Schema.Types.ObjectId, ref: 'User'}
 });
 
-module.exports = mongoose.model('Product', productSchema);
+module.exports = mongoose.model('product', productSchema);

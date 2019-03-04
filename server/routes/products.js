@@ -1,6 +1,11 @@
 const express = require('express');
-const router = express.Router();
 const Product = require('../model/product');
+const router = express.Router();
+const UserController = require('../controllers/user');
+
+router.get('/secret', UserController.authMiddleware, function(req, res) {
+  res.json({"secret": true});
+});
 
 router.get('', function (req, res) {
   Product.find({}, function (err, products) {
@@ -14,7 +19,7 @@ router.get('/:id', function(req, res) {
 
   Product.findById(productId, function(err, product) {
     if(err) {
-      res.status(422).send({errors: [{title: 'Error', detail: 'Product does not exist'}]});
+      res.status(422).send({errors: [{title: 'Error', detail: 'product does not exist'}]});
     }
 
     res.json(product);

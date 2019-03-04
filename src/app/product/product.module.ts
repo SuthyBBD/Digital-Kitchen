@@ -7,6 +7,7 @@ import {ProductService} from './services/product.service';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import {RouterModule} from '@angular/router';
 import {productRoutes} from './product.routes';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {productRoutes} from './product.routes';
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(productRoutes)
+    RouterModule.forChild(productRoutes),
+    HttpClientModule
   ],
   providers: [ProductService]
 })

@@ -1,81 +1,20 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Product} from '../model/product.model';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
-  private products: Product[] = [{
-    id: '1',
-    brand: 'BuyFresh',
-    name: 'Dijon Mustard',
-    description: 'Mustardy Mustard',
-    retailPrice: '250',
-    dkPrice: '180',
-    image: 'blahblah',
-    createdDate: '',
-    active: true,
-    stockCount: 6
-  },
-    {
-      id: '2',
-      brand: 'PizzaCo',
-      name: 'Pizza',
-      description: 'Pizzary Pizza',
-      retailPrice: '120',
-      dkPrice: '50',
-      image: 'blahblah',
-      createdDate: '',
-      active: true,
-      stockCount: 6
-    },
-    {
-      id: '3',
-      brand: 'Fudy',
-      name: 'Fud',
-      description: 'Fudily Fud',
-      retailPrice: '250',
-      dkPrice: '180',
-      image: 'blahblah',
-      createdDate: '',
-      active: true,
-      stockCount: 6
-    },
-    {
-      id: '4',
-      brand: 'Rozos Hot Dogs',
-      name: 'Hot Dog',
-      description: 'Hottily Dog',
-      retailPrice: '250',
-      dkPrice: '180',
-      image: 'blahblah',
-      createdDate: '',
-      active: true,
-      stockCount: 6
-    }];
-
-  public getProductById(productId: string): Observable<Product> {
-
-    return new Observable<Product>((observer) => {
-      setTimeout(() => {
-        const currentProduct = this.products.find((product) => {
-          return product.id === productId;
-        });
-        observer.next(currentProduct);
-      }, 500);
-    });
+  public getProductById(productId: string): Observable<any> {
+      return this.http.get('/api/v1/products/' + productId);
   }
 
   public getProducts(): any {
-    return new Observable<Product[]>((observer) => {
-      setTimeout(() => {
-        observer.next(this.products);
-      }, 1000);
-    });
+    return this.http.get('/api/v1/products');
   }
 }

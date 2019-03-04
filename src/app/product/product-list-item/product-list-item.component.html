@@ -1,11 +1,11 @@
-<a routerLink="/products/{{Product.id}}">
+<a routerLink="/products/{{product._id}}">
   <div class="card dk-card">
     <img class="card-img-top" src="http://via.placeholder.com/350x250" alt="">
     <div class="card-block">
-      <h6 class="card-subtitle">BuyFresh &#183; {{Product.title}}</h6>
-      <h4 class="card-title">A delicious dijon mustard made from yellow crayons</h4>
-      <p class="card-text">R240 &#183; Free Shipping</p>
-      <a href="#" class="card-link">More Info</a>
+      <h6 class="card-subtitle">{{product.brand}} &#183; {{product.name}}</h6>
+      <p class="card-text">R{{product.dkPrice}} &#183; Free Shipping</p>
+      <a href="#" class="card-link">View Product</a>
+      <h4> SAVE {{savings}}%</h4>
     </div>
   </div>
 </a>
