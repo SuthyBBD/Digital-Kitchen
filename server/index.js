@@ -11,6 +11,8 @@ const express = require('express'),
 mongoose.connect(config.DB_URI).then(() => {
   const mockDb = new MockDb();
   mockDb.seedDb();
+}).catch((error) => {
+  console.log(error.message);
 });
 
 const app = express();

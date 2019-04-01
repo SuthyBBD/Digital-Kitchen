@@ -1,4 +1,5 @@
 const Product = require('./model/product')
+const User = require('./model/user');
 
 class MockDb {
 
@@ -46,24 +47,38 @@ class MockDb {
         createdDate: '',
         active: true,
         stockCount: 6
-      }]
+      }];
+
+
+    this.users = [{
+      username: 'Test User',
+      email: 'test@gmail.com',
+      password: 'testtest'
+    }];
   }
 
-  async cleanProducts() {
+  async cleanDB() {
+    await User.deleteMany({});
     await Product.deleteMany({});
   }
 
-  saveProducts() {
-    this.products.forEach((product) => {
-      const newProduct = new Product(product);
-    newProduct.save();
+  saveDataToDB() {
+    const user = new User(this.users[0]);
 
-  });
+    this.products.forEach((p) => {
+      const newProduct = new Product(p);
+      newProduct.user = user;
+      user.products.push(newProduct);
+      newProduct.save();
+    });
+
+    user.save();
   }
 
-  seedDb() {
-    this.cleanProducts();
-    this.saveProducts();
+  async seedDb() {
+   await this.cleanDB();
+    this.saveDataToDB();
   }
 }
+
 module.exports = MockDb;

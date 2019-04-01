@@ -89,7 +89,6 @@ exports.authMiddleware = function(req, res, next) {
 }
 
 function parseToken(token) {
-  console.log(token.split(' ')[1] + " compareTo " + config.SECRET);
   return jwt.verify(token.split(' ')[1], config.SECRET);
 }
 

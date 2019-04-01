@@ -1,11 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
+import {AppComponent} from './app.component';
+import {HeaderComponent} from './header/header.component';
 import {RouterModule} from '@angular/router';
 import {appRoutes} from './app.routes';
-import { ProductModule } from './product/product.module';
+import {ProductModule} from './product/product.module';
+import {AuthModule} from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -15,9 +16,11 @@ import { ProductModule } from './product/product.module';
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    ProductModule
+    ProductModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
