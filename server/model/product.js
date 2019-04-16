@@ -11,7 +11,8 @@ const productSchema = new Schema({
   createdDate: {type: Date, default: Date.now},
   active: Boolean,
   stockCount: Number,
-  user: {type: Schema.Types.ObjectId, ref: 'User'}
+  user: {type: Schema.Types.ObjectId, ref: 'User'},
+  purchases: [{type: Schema.Types.ObjectId, ref: 'Purchase'}]
 });
 
 module.exports = mongoose.model('product', productSchema);

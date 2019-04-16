@@ -10,8 +10,7 @@ class MockDb {
       description: 'Mustardy Mustard',
       retailPrice: '250',
       dkPrice: '180',
-      image: 'blahblah',
-      createdDate: '',
+      image: 'assets/images/buyfreshmustard.jpg',
       active: true,
       stockCount: 6
     },
@@ -21,8 +20,7 @@ class MockDb {
         description: 'Pizzary Pizza',
         retailPrice: '120',
         dkPrice: '50',
-        image: 'blahblah',
-        createdDate: '',
+        image: 'assets/images/pizzaco.jpg',
         active: true,
         stockCount: 6
       },
@@ -32,8 +30,7 @@ class MockDb {
         description: 'Fudily Fud',
         retailPrice: '250',
         dkPrice: '180',
-        image: 'blahblah',
-        createdDate: '',
+        image: 'assets/images/fudy.jpeg',
         active: true,
         stockCount: 6
       },
@@ -43,8 +40,7 @@ class MockDb {
         description: 'Hottily Dog',
         retailPrice: '250',
         dkPrice: '180',
-        image: 'blahblah',
-        createdDate: '',
+        image: 'assets/images/rozohotdog.jpg',
         active: true,
         stockCount: 6
       }];

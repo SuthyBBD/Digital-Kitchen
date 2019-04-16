@@ -5,8 +5,9 @@ const express = require('express'),
   Product = require('./model/product'),
   MockDb = require('./mock-db');
 
-  const productRoutes = require('./routes/products'),
-  userRoutes = require('./routes/users');
+const productRoutes = require('./routes/products'),
+  userRoutes = require('./routes/users'),
+  purchaseRoutes = require('./routes/purchases');
 
 mongoose.connect(config.DB_URI).then(() => {
   const mockDb = new MockDb();
@@ -22,6 +23,7 @@ app.use(bodyParser.json());
 
 app.use('/api/v1/products', productRoutes);
 app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/purchases', purchaseRoutes);
 
 const PORT = process.env.PORT || 3001;
 

@@ -17,7 +17,14 @@
     font-size: 30px;
     letter-spacing: 1px;
     color: $main-color;
-    font-weight: 500;
+    font-weight: 700;
+  }
+
+  .timer {
+    margin-right: 30px;
+    padding-top: 25px;
+    color: $main-color;
+    font-weight: 600;
   }
 
   .navbar-right-content {
@@ -31,6 +38,7 @@
 
   .nav-item {
     font-size: 14px;
+    display: inline-block;
   }
 
 

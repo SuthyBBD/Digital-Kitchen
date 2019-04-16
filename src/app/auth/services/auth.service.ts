@@ -57,7 +57,7 @@ export class AuthService {
   }
 
   public getAuthToken(): string {
-    return localStorage.getItem('bwm_auth');
+    return localStorage.getItem('dk_auth');
   }
 
   public getUsername(): string {

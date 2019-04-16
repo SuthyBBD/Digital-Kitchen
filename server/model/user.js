@@ -26,10 +26,11 @@ const userSchema = new Schema({
   isAdmin: {
     type: Boolean, default: false
   },
-  products: [{type: Schema.Types.ObjectId, ref: 'Product'}]
+  products: [{type: Schema.Types.ObjectId, ref: 'Product'}],
+  purchases: [{type: Schema.Types.ObjectId, ref: 'Purchase'}]
 });
 
-userSchema.methods.passwordMatch = function(requestedPassword) {
+userSchema.methods.passwordMatch = function (requestedPassword) {
 
   return bcrypt.compareSync(requestedPassword, this.password);
 };

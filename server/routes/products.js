@@ -1,29 +1,32 @@
 const express = require('express');
-const Product = require('../model/product');
 const router = express.Router();
+const Product = require('../model/product');
 const UserController = require('../controllers/user');
 
-router.get('/secret', UserController.authMiddleware, function(req, res) {
+router.get('/secret', UserController.authMiddleware, function (req, res) {
   res.json({"secret": true});
 });
 
 router.get('', function (req, res) {
-  Product.find({}, function (err, products) {
-
-    res.json(products);
-  });
+  Product.find({})
+    .select('-purchases')
+    .exec(function (err, foundProducts) {
+      res.json(foundProducts);
+    });
 });
 
-router.get('/:id', function(req, res) {
+router.get('/:id', function (req, res) {
   const productId = req.params.id;
 
-  Product.findById(productId, function(err, product) {
-    if(err) {
-      res.status(422).send({errors: [{title: 'Error', detail: 'product does not exist'}]});
-    }
-
-    res.json(product);
-  });
+  Product.findById(productId)
+    .populate('user', 'username -_id')
+    .populate('purchases', 'quantity -_id')
+    .exec(function (err, foundProduct) {
+      if (err) {
+        res.status(422).send({errors: [{title: 'Error', detail: 'product does not exist'}]});
+      }
+      res.json(foundProduct);
+    });
 });
 
 module.exports = router;
